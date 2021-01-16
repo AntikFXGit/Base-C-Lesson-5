@@ -22,10 +22,10 @@ namespace Base_C_Lesson_5
             //Task3();
 
             // Задача 4.
-            Task4();
+            //Task4();
 
             // Задача 5.
-            //Task5();
+            Task5();
 
 
 
@@ -204,10 +204,19 @@ namespace Base_C_Lesson_5
             Console.Write("------------------------------------------------------\n");
 
             // Берем за основу, что данные приходят из базы данных в целости и сохранности, дополнительно их не проверяем.
-            
-            // Вопрос - ответ (Да/Нет)
-
-
+            int score = 0;
+            var game = new Game();
+            List<int> nums = game.getRandomNums();
+            foreach (int num in nums)
+            {
+                // 1. Показываем вопрос
+                int sc = game.showQuestion(num);
+                score += sc;
+                if(sc==1) Console.WriteLine("Ответ верный!"); else Console.WriteLine("Ответ НЕ верный!");
+            }
+            Console.WriteLine("\nРезультат игры:");
+            Console.WriteLine("Количество очков: "+ score);
+            Console.ReadKey();
         }
 
     }
